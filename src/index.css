@@ -1,0 +1,142 @@
+/* ParallaxHero styles */
+.parallax-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+.parallax-layer {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  will-change: transform;
+  transition: box-shadow 0.2s;
+}
+.parallax-layer.bg {
+  opacity: 1;
+}
+.parallax-layer.mid {
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+}
+.parallax-layer.front {
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+.parallax-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  color: #fff;
+  width: 90vw;
+  max-width: 600px;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(99,102,241,0.10);
+  padding: 2rem 1.5rem;
+  backdrop-filter: blur(8px);
+}
+.parallax-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg,#60a5fa,#2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.parallax-content p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #e0e7ef;
+}
+@media (max-width: 600px) {
+  .parallax-content h1 { font-size: 1.5rem; }
+  .parallax-content p { font-size: 1rem; }
+  .parallax-content { padding: 1rem 0.5rem; }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme Colors */
+:root {
+  --bg-light: #f3f4f6;
+  --bg-dark: #18181b;
+  --card-light: #fff;
+  --card-dark: #23232b;
+  --accent-gradient: linear-gradient(90deg, #60a5fa 0%, #a78bfa 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--bg-light);
+  color: #18181b;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.dark body {
+  background: var(--bg-dark);
+  color: #f3f4f6;
+}
+
+* {
+  transition: background 0.3s cubic-bezier(.4,0,.2,1), color 0.2s, border-color 0.2s;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Card glass effect */
+.glass {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+}
+.dark .glass {
+  background: rgba(36,36,40,0.85);
+}
+
+/* Cool hover effect for cards */
+.card-hover {
+  transition: transform 0.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s;
+}
+.card-hover:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 32px 0 rgba(99,102,241,0.12);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg,#60a5fa,#a78bfa);
+  border-radius: 8px;
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 0.7s cubic-bezier(.4,0,.2,1);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
