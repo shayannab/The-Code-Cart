@@ -293,7 +293,7 @@ export default function Hero() {
       <div className="hero-container" style={{width: "100vw", marginLeft: "calc(-50vw + 50%)"}}>
         <section
           ref={parallaxRef}
-          className={`hero-section w-full py-20 px-4 text-center fade-in-up ${isVisible ? 'visible' : ''}`}
+          className={`hero-section w-full pt-28 pb-20 px-4 text-center fade-in-up ${isVisible ? 'visible' : ''}`}
           style={{
             borderRadius: "2rem",
             color: "#fff",
@@ -307,7 +307,10 @@ export default function Hero() {
             alignItems: "center",
             width: "100vw",
             maxWidth: "100vw",
-            marginLeft: "calc(-50vw + 50%)"
+            marginLeft: "calc(-50vw + 50%)",
+            /* ensure anchored scrolling accounts for fixed navbar */
+            scrollMarginTop: "7rem",
+            paddingTop: "7rem"
           }}
         >
           {/* Floating background elements */}
