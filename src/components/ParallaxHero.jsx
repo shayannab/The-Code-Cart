@@ -26,9 +26,11 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
+    const { x, y } = mousePosition;
+
     const handleScroll = () => {
       if (parallaxRef.current) {
-        const scrollY = window.scrollY;
+  const { scrollY } = window;
         const parallaxSpeed = scrollY * 0.3;
         
         // Apply multiple transform effects
@@ -39,7 +41,7 @@ export default function Hero() {
         
         // Dynamic background position with scroll
         parallaxRef.current.style.backgroundPosition = `
-          ${50 + mousePosition.x * 0.02}% ${50 + scrollY * 0.1}%
+          ${50 + x * 0.02}% ${50 + scrollY * 0.1}%
         `;
         
         // Dynamic opacity based on scroll

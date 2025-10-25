@@ -29,13 +29,7 @@ export default function App() {
         </section>
         <section id="tools" className="w-full max-w-6xl mx-auto py-16 px-4">
           <h2 className="gradient-text text-3xl sm:text-4xl font-extrabold mb-8 text-center select-none">All-in-One Dev Tools</h2>
-          {!activeTool ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {tools.map((tool) => (
-                <ToolCard key={tool.id} {...tool} onClick={() => setActiveTool(tool.id)} />
-              ))}
-            </div>
-          ) : (
+          {activeTool ? (
             <section className="w-full max-w-2xl mx-auto fade-in">
               <button
                 onClick={() => setActiveTool(null)}
@@ -50,6 +44,12 @@ export default function App() {
               {activeTool === "regex" && <RegexTester />}
               {activeTool === "jwt" && <JWTDecoder />}
             </section>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {tools.map((tool) => (
+                <ToolCard key={tool.id} {...tool} onClick={() => setActiveTool(tool.id)} />
+              ))}
+            </div>
           )}
         </section>
         <section id="how">
