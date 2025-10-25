@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar.jsx";
 import ParallaxHero from "./components/ParallaxHero";
 import HowToUse from "./components/HowToUse";
 import ToolCard from "./components/ToolCard";
