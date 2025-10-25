@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
+import logo from "../../img/logo.png";
 
 export default function Navbar() {
   return (
@@ -31,7 +32,7 @@ export default function Navbar() {
     display: block;
   }
 `}</style>
-            <img src="./img/logo.png" alt="Logo" className="navbar-logo-img" />
+              <img src={logo} alt="Logo" className="navbar-logo-img" />
         </div>
            <a href="#hero" className="text-2xl sm:text-3xl font-extrabold select-none tracking-tight drop-shadow-sm mx-auto text-black dark:text-neutral-100">
             The Code Cart
